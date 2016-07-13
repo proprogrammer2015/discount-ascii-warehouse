@@ -1,0 +1,6 @@
+<ul when-scrolled="loadMore()" request-items="getMore()">
+    <li ng-repeat="item in products track by $index" ng-class="{inline: item.type === 'product', 'fill-row': item.type === 'advertisement' }">
+        <product ng-if="item.type == 'product'" item="item"></product>
+        <advertisement ng-if="item.type == 'advertisement'" item="item"></advertisement>
+    </li>
+</ul>

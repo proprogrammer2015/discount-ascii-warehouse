@@ -1,0 +1,7 @@
+<div class="item center">
+    <div class="product middle fill-row" ng-style="{'font-size': item.productStyle}">
+        <p>{{item.face}}</p>
+    </div>
+    <span class="properties date">{{ item.date | relativeDate:'week' }}</span>
+    <span class="properties price">{{ item.price | currency:"$&nbsp;":2 }}</span>
+</div>
