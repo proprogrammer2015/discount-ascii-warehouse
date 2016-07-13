@@ -2,3 +2,7 @@
 
 node_modules/
 
+# Private stuff
+
+basic*
+
