@@ -1,4 +1,15 @@
-define(['app', 'common'], function (app, common) {
+define(['app', 'tmpconfig'], function (app, config) {
+
+    /**
+     * Add transform function to transform functions array.
+     * @param {Object} defaults - Angular default transform functions object.
+     * @param {Function} transform - Function, that transforms response.
+     * @returns {Object} Returns Angular object with transform functions array.
+     */
+    var transformResponse = function (defaults, transform) {
+        defaults = angular.isArray(defaults) ? defaults : [defaults];
+        return defaults.concat(transform);
+    };
 
     /**
      * Transform product properties into appropriate format.
@@ -14,7 +25,7 @@ define(['app', 'common'], function (app, common) {
             item.productStyle = item.size + 'px';
 
             // Set type of the item
-            item.type = common.TYPE.PRODUCT;
+            item.type = config.TYPE.PRODUCT;
             return item;
         });
         return data;
@@ -24,15 +35,12 @@ define(['app', 'common'], function (app, common) {
      * Service responsible for ajax calls and response transformation.
      */
     var dataService = function ($http) {
-        /**
-         * Transform http response.
-         */
-        var localConfig = {
-            transformResponse: common.http.transformResponse($http.defaults.transformResponse, transform)
-        };
 
         var skip = 0;
         var lastSortBy = null;
+        var serviceConfig = {
+            transformResponse: transformResponse($http.defaults.transformResponse, transform)
+        };
 
         /**
          * Get products depends on limit and sort order.
@@ -41,16 +49,14 @@ define(['app', 'common'], function (app, common) {
          * @returns {Promise}
          */
         function getProducts(limit, sortBy) {
-
+            skip = 0;
             if (sortBy == lastSortBy && lastSortBy !== null) {
                 skip += limit;
-            } else {
-                skip = 0;
             }
             lastSortBy = sortBy;
 
-            var url = common.REST_API.getProductsUrl(limit, sortBy, skip);
-            return $http.get(url, localConfig);
+            var url = config.REST_API.getProductsUrl(limit, sortBy, skip);
+            return $http.get(url, serviceConfig);
         }
 
         return {

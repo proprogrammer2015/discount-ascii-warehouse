@@ -10,7 +10,8 @@ var config = {
         app: 'app',
         productGallery: 'moduleFrontPage/controllers/productGallery',
         dataService: 'moduleFrontPage/services/dataService',
-        common: 'common/common',
+        advertisementService: 'moduleFrontPage/services/advertisementService',
+        tmpconfig: 'common/config',
         dateformat: 'lib/dateformat',
         productGalleryDirective: 'moduleFrontPage/directives/productGallery',
         relativeDateFilter: 'moduleFrontPage/filters/relativeDateFilter'
@@ -32,16 +33,17 @@ requirejs.config(config);
  */
 requirejs([
     'angular',
-    'common',
+    'tmpconfig',
     'text',
     'infinitiveScroll',
     'dateformat',
     'app',
     'productGallery',
     'dataService',
+    'advertisementService',
     'productGalleryDirective',
     'relativeDateFilter'],
-    function (angular, common) {
-        angular.bootstrap(document, [common.APPLICATION_NAME]);
+    function (angular, config) {
+        angular.bootstrap(document, [config.APPLICATION_NAME]);
     }
 );
