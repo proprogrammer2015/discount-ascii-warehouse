@@ -19,17 +19,17 @@ mod.directive("whenScrolled", ['$window', function ($window) {
                 }
             };
 
-            var checkGetMore = function (evt) {
+            /*var checkGetMore = function (evt) {
                 var rectObject = raw.getBoundingClientRect();
                 if (!scope.isLoading) {
                     if ($window.innerHeight + 500 > rectObject.bottom) {
                         scope.$apply(attrs.requestItems);
                     }
                 }
-            };
+            };*/
 
             angular.element($window).bind('scroll load', checkLoadMore);
-            angular.element($window).bind('scroll', checkGetMore);
+            //angular.element($window).bind('scroll', checkGetMore);
         }
     };
 }]);

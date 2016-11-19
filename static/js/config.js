@@ -4,17 +4,19 @@
 var config = {
     baseUrl: 'js/',
     paths: {
+        app: 'app',
         text: 'lib/text',
         angular: 'lib/angular',
-        infinitiveScroll: 'lib/ng-infinite-scroll',
-        app: 'app',
-        productGallery: 'moduleFrontPage/controllers/productGallery',
-        dataService: 'moduleFrontPage/services/dataService',
-        advertisementService: 'moduleFrontPage/services/advertisementService',
-        tmpconfig: 'common/config',
+        infinitiveScroll: 'lib/ng-infinite-scroll.min',
+        lodash: 'lib/lodash.min',
         dateformat: 'lib/dateformat',
-        productGalleryDirective: 'moduleFrontPage/directives/productGallery',
-        relativeDateFilter: 'moduleFrontPage/filters/relativeDateFilter'
+        appConfig: 'common/config',
+        productGallery: 'moduleProductGallery/controllers/productGallery',
+
+        service: 'services',
+        filter: 'filters',
+        productGalleryDirective: 'moduleProductGallery/directives/productGallery',
+        relativeDateFilter: 'filters/relativeDateFilter'
     },
     shim: {
         angular: {
@@ -33,14 +35,10 @@ requirejs.config(config);
  */
 requirejs([
     'angular',
-    'tmpconfig',
+    'appConfig',
     'text',
-    'infinitiveScroll',
-    'dateformat',
     'app',
     'productGallery',
-    'dataService',
-    'advertisementService',
     'productGalleryDirective',
     'relativeDateFilter'],
     function (angular, config) {

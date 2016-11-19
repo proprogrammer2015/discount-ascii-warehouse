@@ -1,7 +1,7 @@
 <div class="item center">
-    <div class="product middle fill-row" ng-style="{'font-size': item.productStyle}">
-        <p ng-bind="item.face"></p>
+    <div class="product middle fill-row" ng-style="{'font-size': data.productStyle}">
+        <p ng-bind="::data.face"></p>
     </div>
-    <span class="properties date" ng-bind="item.date | relativeDate:'week'"></span>
-    <span class="properties price" ng-bind="item.price | currency:'$&nbsp;':2"></span>
+    <span class="properties date" ng-bind="::data.date | relativeDate:'week'"></span>
+    <span class="properties price" ng-bind="::data.price | currency:'$&nbsp;':2"></span>
 </div>

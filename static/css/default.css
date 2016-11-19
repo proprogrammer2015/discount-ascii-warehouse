@@ -1,6 +1,7 @@
 img {
     display: block;
     margin: auto;
+    min-height: 200px;
 }
 
 section.products {

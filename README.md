@@ -20,10 +20,10 @@ I developed this application during recruitment process for one of the Australia
 ```
 
 #### Run tests
-1. Go to '/static' directory.
-2. (You should have installed 'karma' first) Type:
+NOTE! Tests will be updated soon.
+1. Run following command in main project directory:
 ```
-    karma start
+    npm test
 ```
 
 

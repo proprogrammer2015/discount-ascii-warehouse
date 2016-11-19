@@ -1,0 +1,10 @@
+<div class="block orderBy">
+    <span>Sort ascending by</span>
+    <select ng-model="sortBy">
+        <option value="">Default</option>
+        <option value="id">Id</option>
+        <option value="price">Price</option>
+        <option value="size">Size</option>
+    </select>
+    <button ng-click="sortChange()">Sort</button>
+</div>

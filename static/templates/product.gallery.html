@@ -1,15 +1,6 @@
-<advertisement item="firstAd"></advertisement>
-<div class="block orderBy">
-    <span>Order by</span>
-    <select ng-model="sortBy" ng-change="sortChange()">
-        <option value="{{ sortOptions.DEFAULT }}">Default</option>
-        <option value="{{ sortOptions.ID }}">Id</option>
-        <option value="{{ sortOptions.PRICE }}">Price</option>
-        <option value="{{ sortOptions.SIZE }}">Size</option>
-    </select>
-</div>
+<order></order>
 <product-list></product-list>
 <div class="block">
-    <p class="loading" ng-show="isLoading">Loading...</p>
+    <p class="loading" ng-show="!isEndOfCatalogue">Loading...</p>
     <p class="loading" ng-show="isEndOfCatalogue">~ End of catalogue ~</p>
 </div>

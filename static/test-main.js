@@ -21,10 +21,6 @@ require.config({
         angularMocks: 'js/lib/angular-mocks',
         infinitiveScroll: 'js/lib/ng-infinite-scroll',
         app: 'js/app',
-        productGallery: 'js/moduleFrontPage/controllers/productGallery',
-        dataService: 'js/moduleFrontPage/services/dataService',
-        relativeDateFilter: 'js/moduleFrontPage/filters/relativeDateFilter',
-        common: 'js/common/common',
         dateformat: 'js/lib/dateformat'
     },
     shim: {
@@ -37,10 +33,10 @@ require.config({
         angularMocks: {
             deps: ['angular'],
             exports: 'angular.mock'
-        },
+        }/*,
         productGallery: {
             deps: ['angularMocks']
-        }
+        }*/
     },
 
     // dynamically load all test files

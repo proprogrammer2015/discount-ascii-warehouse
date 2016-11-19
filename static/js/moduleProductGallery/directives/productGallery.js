@@ -3,9 +3,10 @@ define([
     'text!../templates/product.gallery.html',
     'text!../templates/product.list.html',
     'text!../templates/product.html',
-    'text!../templates/advertisement.html'
+    'text!../templates/advertisement.html',
+    'text!../templates/order.html'
 ],
-    function (app, productGalleryTemplate, productListTemplate, productTemplate, advertisementTemplate) {
+    function (app, productGalleryTemplate, productListTemplate, productTemplate, advertisementTemplate, orderTemplate) {
 
         var productGalleryDirective = function () {
             return {
@@ -33,7 +34,7 @@ define([
         var productDirective = function () {
             return {
                 scope: {
-                    item: '='
+                    data: '='
                 },
                 restrict: 'E',
                 template: productTemplate
@@ -46,7 +47,7 @@ define([
         var advertisementDirective = function () {
             return {
                 scope: {
-                    item: '='
+                    data: '='
                 },
                 restrict: 'E',
                 template: advertisementTemplate
@@ -54,4 +55,14 @@ define([
         }
         app.directive('advertisement', advertisementDirective);
 
+
+        var orderDirective = function () {
+            return {
+                restrict: 'E',
+                require: '^^productGallery',
+                template: orderTemplate
+            }
+        };
+
+        app.directive('order', orderDirective);
     });
